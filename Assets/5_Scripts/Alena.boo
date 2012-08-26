@@ -77,7 +77,7 @@ class Alena(MonoBehaviour):
 			else:
 				rayOrigin.x -= 0.022
 			rayOrigin.y += 0.013
-			
+
 			hits = Physics.RaycastAll(rayOrigin, (click - rayOrigin).normalized)
 			attack as single = damage * len(hits)
 			for hit in hits:

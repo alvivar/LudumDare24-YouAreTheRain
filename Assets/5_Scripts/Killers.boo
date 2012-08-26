@@ -15,7 +15,7 @@ class Killers (MonoBehaviour):
 	def Start():
 		anime = GetComponent[of tk2dAnimatedSprite]()
 
-		
+
 	def Update():
 		if isDead:
 			rigidbody.useGravity = true
@@ -28,7 +28,6 @@ class Killers (MonoBehaviour):
 		else:
 			transform.position.z = 1
 				
-		
 		
 	def OnBecameInvisible():
 		if isDead:
