@@ -96,6 +96,9 @@
      <None Include="Assets\TK2DROOT\tk2d\Shaders\LitCutoutVertexColor.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\CutoutVertexColor.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\LitBlendVertexColor.shader" />
+ <Reference Include="Library\ScriptAssemblies\Assembly-Boo">
+ <HintPath>Library\ScriptAssemblies\Assembly-Boo.dll</HintPath>
+ </Reference>
  <Reference Include="Assets\TK2DROOT\tk2d\Editor\tk2dExternal">
  <HintPath>Assets\TK2DROOT\tk2d\Editor\tk2dExternal.dll</HintPath>
  </Reference>
