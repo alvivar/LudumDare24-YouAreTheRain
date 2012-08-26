@@ -5,9 +5,10 @@ class Alena(MonoBehaviour):
 
 
 	public ray as LineRenderer
+	public bubblePrefab as GameObject
 	
 	private anime as tk2dAnimatedSprite
-	private speed as single = 0.35F
+	private speed as single = 0.5F
 	private isLookingRight as bool = true
 	private isAttacking as bool = false
 
@@ -82,10 +83,23 @@ class Alena(MonoBehaviour):
 			ray.SetPosition(0, rayOrigin)
 			ray.SetPosition(1, Vector3(click.x, click.y, -1))
 			
-			Invoke("AntiRay", 0.10F)
+			Invoke("AntiRay", 0.1F)
+			
+		if Input.GetMouseButtonDown(1):
+			
+			tearOrigin as Vector3 = transform.position
+			if isLookingRight:
+				tearOrigin.x += 0.022
+			else:
+				tearOrigin.x -= 0.022
+			tearOrigin.y += 0.013
+			tearOrigin.z = 0
+			
+			Instantiate(bubblePrefab, tearOrigin, Quaternion.identity)
 			
 			
 	# 0 Ray
+	
 	def AntiRay():
 		ray.SetPosition(0, Vector3.zero)
 		ray.SetPosition(1, Vector3.zero)
