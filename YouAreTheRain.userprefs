@@ -2,7 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/4_Scripts/Alena.boo">
     <Files>
-      <File FileName="Assets/4_Scripts/Alena.boo" Line="58" Column="30" />
+      <File FileName="Assets/4_Scripts/Alena.boo" Line="24" Column="7" />
+      <File FileName="Assets/4_Scripts/Killers.boo" Line="12" Column="7" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,6 +12,11 @@
             <Node name="Assets" expanded="True">
               <Node name="4_Scripts" expanded="True">
                 <Node name="Alena.boo" selected="True" />
+              </Node>
+              <Node name="TK2DROOT" expanded="True">
+                <Node name="tk2d" expanded="True">
+                  <Node name="Shaders" expanded="True" />
+                </Node>
               </Node>
             </Node>
           </Node>

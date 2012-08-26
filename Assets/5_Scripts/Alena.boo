@@ -2,7 +2,8 @@ import UnityEngine
 
 
 class Alena(MonoBehaviour):
-	
+
+
 	public ray as LineRenderer
 	
 	private anime as tk2dAnimatedSprite
@@ -27,7 +28,7 @@ class Alena(MonoBehaviour):
 		if isLookingRight:
 			isLookingRight = false
 			anime.FlipX()
-			
+
 			
 	def LookRight():
 		if not isLookingRight:
@@ -57,15 +58,30 @@ class Alena(MonoBehaviour):
 			transform.Translate(Vector3.down * speed * Time.deltaTime)
 			
 		if Input.GetMouseButtonDown(0):
-			# Avoid double attack.
-			if not isAttacking:
-				isAttacking = true
-				anime.Play("attack")
-				anime.animationCompleteDelegate = Idle
+			
+			isAttacking = true
+			anime.Play("attack")
+			anime.animationCompleteDelegate = Idle
+			
 			# The Ray.
+			
 			click = Camera.mainCamera.ScreenToWorldPoint(Input.mousePosition)
-			ray.SetPosition(0, transform.position)
+			click.z = 0
+			rayOrigin as Vector3 = transform.position
+			if isLookingRight:
+				rayOrigin.x += 0.022
+			else:
+				rayOrigin.x -= 0.022
+			rayOrigin.y += 0.013
+			rayOrigin.z = 0
+			
+			hits = Physics.RaycastAll(rayOrigin, (click - rayOrigin).normalized)
+			for hit in hits:
+				print(hit.transform.gameObject.name)
+			
+			ray.SetPosition(0, rayOrigin)
 			ray.SetPosition(1, Vector3(click.x, click.y, -1))
+			
 			Invoke("AntiRay", 0.10F)
 			
 			
