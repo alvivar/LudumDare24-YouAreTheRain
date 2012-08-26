@@ -5,8 +5,7 @@ class AlenaBubble(MonoBehaviour):
 
 
 	def FixedUpdate():
-		if transform.position.z != 0:
-			transform.position.z = 0
+		transform.position.z = 0
 			
 			
 	def OnBecameInvisible():

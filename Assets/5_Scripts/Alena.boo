@@ -4,6 +4,9 @@ import UnityEngine
 class Alena(MonoBehaviour):
 
 
+	private hp as single = 100
+	private damage as single = 10
+
 	public ray as LineRenderer
 	public bubblePrefab as GameObject
 	
@@ -74,11 +77,11 @@ class Alena(MonoBehaviour):
 			else:
 				rayOrigin.x -= 0.022
 			rayOrigin.y += 0.013
-			rayOrigin.z = 0
 			
 			hits = Physics.RaycastAll(rayOrigin, (click - rayOrigin).normalized)
+			attack as single = damage * len(hits)
 			for hit in hits:
-				print(hit.transform.gameObject.name)
+				hit.transform.gameObject.GetComponent[of Killers]().Hurt(attack)
 			
 			ray.SetPosition(0, rayOrigin)
 			ray.SetPosition(1, Vector3(click.x, click.y, -1))
@@ -93,7 +96,6 @@ class Alena(MonoBehaviour):
 			else:
 				tearOrigin.x -= 0.022
 			tearOrigin.y += 0.013
-			tearOrigin.z = 0
 			
 			Instantiate(bubblePrefab, tearOrigin, Quaternion.identity)
 			
