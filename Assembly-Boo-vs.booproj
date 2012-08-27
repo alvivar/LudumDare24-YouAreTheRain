@@ -47,6 +47,7 @@
      <Compile Include="Assets\5_Scripts\Alena.boo" />
      <Compile Include="Assets\5_Scripts\AlenaBubble.boo" />
      <Compile Include="Assets\5_Scripts\Killers.boo" />
+     <Compile Include="Assets\5_Scripts\Love.boo" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\LitSolidVertexColor.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\SolidVertexColor.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\LitPremulVertexColor.shader" />

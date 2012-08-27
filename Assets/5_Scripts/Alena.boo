@@ -4,12 +4,15 @@ import UnityEngine
 class Alena(MonoBehaviour):
 
 
+	public ray as LineRenderer
+	public bubblePrefab as GameObject
+
+	public yHP as GUIText
+	public yMessage as GUIText
+
 	private hp as single = 100
 	private damage as single = 10
 
-	public ray as LineRenderer
-	public bubblePrefab as GameObject
-	
 	private anime as tk2dAnimatedSprite
 	private speed as single = 0.5F
 	private isLookingRight as bool = true
@@ -18,6 +21,7 @@ class Alena(MonoBehaviour):
 
 	def Start():
 		anime = GetComponent[of tk2dAnimatedSprite]()
+		yMessage.text = ""
 
 		
 	def Update():
@@ -78,7 +82,10 @@ class Alena(MonoBehaviour):
 				rayOrigin.x -= 0.022
 			rayOrigin.y += 0.013
 
-			hits = Physics.RaycastAll(rayOrigin, (click - rayOrigin).normalized)
+			direction as Vector3 = (click - rayOrigin).normalized
+			distance as single = (click - rayOrigin).magnitude
+
+			hits = Physics.RaycastAll(rayOrigin, direction, distance, 1 << LayerMask.NameToLayer("Good"))
 			attack as single = damage * len(hits)
 			for hit in hits:
 				hit.transform.gameObject.GetComponent[of Killers]().Hurt(attack)
