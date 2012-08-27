@@ -7,9 +7,6 @@ class Alena(MonoBehaviour):
 	public ray as LineRenderer
 	public bubblePrefab as GameObject
 
-	public yHP as GUIText
-	public yMessage as GUIText
-
 	private hp as single = 100
 	private damage as single = 10
 
@@ -21,15 +18,14 @@ class Alena(MonoBehaviour):
 
 	def Start():
 		anime = GetComponent[of tk2dAnimatedSprite]()
-		yMessage.text = ""
 
 		
 	def Update():
 		Controls()				
 
-				
+
 	def FixedUpdate():
-		pass
+		transform.position.z = 0
 		
 		
 	def LookLeft():

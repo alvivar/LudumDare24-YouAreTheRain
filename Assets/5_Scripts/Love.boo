@@ -5,11 +5,13 @@ class Love(MonoBehaviour):
 
 
 	public loveHate as GUIText
+	public mainMessage as GUIText
+	public defaultBackgroundColor as Color
 
 	private anime as tk2dAnimatedSprite
 
 	private evolution as single = 0
-	private evolutionPoints as single = 0.3F
+	private evolutionPoints as single = 10.3F
 	private level as single = 0
 	private isBlinking as bool = false
 
@@ -17,22 +19,28 @@ class Love(MonoBehaviour):
 	def Start():
 		anime = GetComponent[of tk2dAnimatedSprite]()
 		loveHate.material.color = Color.black
-		Invoke("Blink0", 1)
 
 
 	def Update():
 
-		if evolution >= 25 and level == 0:
+		if evolution >= 1 and level == 0:
+			level++
+			Blink0()
+			anime.Play("level1")
+			CleanGUITexts()
+			mainMessage.text = "TheyAreComing!"
+
+		if evolution >= 25 and level == 1:
 			level++
 			Blink0()
 			anime.Play("level2")
 
-		if evolution >= 50 and level == 1:
+		if evolution >= 50 and level == 2:
 			level++
 			Blink0()
 			anime.Play("level3")
 
-		if evolution >= 75 and level == 2:
+		if evolution >= 75 and level == 3:
 			level++
 			Blink0()
 			anime.Play("level4")
@@ -44,14 +52,18 @@ class Love(MonoBehaviour):
 
 			Destroy(collision.gameObject)
 
-			if evolution < 100:
+			if evolution + evolutionPoints < 100:
 				evolution += evolutionPoints
 			else:
 				evolution = 100
 
+			loveHate.text =  Mathf.Floor(evolution) + "%"
 
-	def OnGUI():
-		loveHate.text =  Mathf.Floor(evolution) + "%"
+
+	def CleanGUITexts():
+		texts as (GameObject) = GameObject.FindGameObjectsWithTag('GUIText')
+		for text in texts:
+			text.guiText.text = ""
 
 
 	# THE SHAME!
@@ -77,4 +89,4 @@ class Love(MonoBehaviour):
 		Invoke("Blink5", 0.1F)
 
 	def Blink5():
-		Camera.mainCamera.backgroundColor = Color.white
+		Camera.mainCamera.backgroundColor = defaultBackgroundColor
