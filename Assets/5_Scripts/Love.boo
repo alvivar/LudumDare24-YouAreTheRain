@@ -29,33 +29,33 @@ class Love(MonoBehaviour):
 			anime.Play("level1")
 			CleanGUITexts()
 			mainMessage.text = "WHAT ARE YOU\nDOING!?"
-			Invoke("CleanGUITexts", 4)
+			Invoke("CleanGUITexts", 5)
 
 		if evolution >= 25 and level == 1:
 			level++
 			Blink0()
 			anime.Play("level2")
 			mainMessage.text = "the egg needs\nmore love"
-			Invoke("CleanGUITexts", 4)
+			Invoke("CleanGUITexts", 5)
 
 		if evolution >= 50 and level == 2:
 			level++
 			Blink0()
 			anime.Play("level3")
 			mainMessage.text = "WHY?!\nwe are not ready,\nthere is still time"
-			Invoke("CleanGUITexts", 4)
+			Invoke("CleanGUITexts", 5)
 
 		if evolution >= 75 and level == 3:
 			level++
 			Blink0()
 			anime.Play("level4")
 			mainMessage.text = "your sadness\nis poison"
-			Invoke("CleanGUITexts", 4)
+			Invoke("CleanGUITexts", 5)
 
 		if evolution >= 100 and level == 4:
 			level++
 			Blink0()
-			anime.Play("level4")
+			anime.Play("level5")
 			mainMessage.text = "we can't control\nhim anymore"
 
 
