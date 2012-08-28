@@ -19,7 +19,7 @@ class Love(MonoBehaviour):
 	private enemy as GameObject
 
 	private evolution as single = 0
-	private evolutionPoints as single = 0.3F
+	private evolutionPoints as single = 5.4F
 	private speed as single = 1.5F
 	private level as single = 0
 	private isBlinking as bool = false
@@ -80,8 +80,9 @@ class Love(MonoBehaviour):
 
 		if evolution >= 100 and level == 4:
 			enemy.gameObject.GetComponent[of Alena]().Happiness()
-			killAll()
+			isSpawning = false
 			isAttacking = true
+			killAll()
 			level++
 			Blink0()
 			ResetWeirdPos()

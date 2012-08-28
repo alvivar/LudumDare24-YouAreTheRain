@@ -37,7 +37,11 @@ class Alena(MonoBehaviour):
 		transform.position.z = 0
 
 
-	def OnCollisionStay():
+	def OnCollisionStay(collision as Collision):
+
+		if collision.gameObject.name == "Love":
+			return
+
 		hp -= 0.4F
 
 		if hp < 0:
