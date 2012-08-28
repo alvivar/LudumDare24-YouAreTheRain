@@ -1,19 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/5_Scripts/Alena.boo">
-    <Files>
-      <File FileName="Assets/5_Scripts/Alena.boo" Line="47" Column="39" />
-      <File FileName="Assets/5_Scripts/Love.boo" Line="47" Column="4" />
-      <File FileName="Assets/5_Scripts/Killers.boo" Line="10" Column="29" />
-      <File FileName="Assets/5_Scripts/AlenaBubble.boo" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-Boo" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="5_Scripts" expanded="True">
-                <Node name="Alena.boo" selected="True" />
+                <Node name="AlenaBubble.boo" selected="True" />
               </Node>
             </Node>
           </Node>
