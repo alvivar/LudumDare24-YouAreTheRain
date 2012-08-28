@@ -2,10 +2,10 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/5_Scripts/Love.boo">
     <Files>
-      <File FileName="Assets/5_Scripts/Alena.boo" Line="84" Column="67" />
+      <File FileName="Assets/5_Scripts/Alena.boo" Line="1" Column="1" />
+      <File FileName="Assets/5_Scripts/Love.boo" Line="93" Column="20" />
       <File FileName="Assets/5_Scripts/Killers.boo" Line="1" Column="1" />
-      <File FileName="Assets/5_Scripts/AlenaBubble.boo" Line="12" Column="27" />
-      <File FileName="Assets/5_Scripts/Love.boo" Line="80" Column="50" />
+      <File FileName="Assets/5_Scripts/AlenaBubble.boo" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

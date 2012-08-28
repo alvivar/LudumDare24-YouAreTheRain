@@ -7,21 +7,28 @@ class Alena(MonoBehaviour):
 	public ray as LineRenderer
 	public bubblePrefab as GameObject
 
+	private anime as tk2dAnimatedSprite
+
 	private hp as single = 100
 	private damage as single = 10
-
-	private anime as tk2dAnimatedSprite
-	private speed as single = 0.5F
+	private speed as single = 0.75F
+	private isSad as bool = true
 	private isLookingRight as bool = true
 	private isAttacking as bool = false
+
+	private width as single
+	private height as single
 
 
 	def Start():
 		anime = GetComponent[of tk2dAnimatedSprite]()
+		height = Camera.mainCamera.orthographicSize * 2
+		width = height * Camera.mainCamera.aspect
 
 		
 	def Update():
-		Controls()				
+		Controls()
+		MotionSafe()
 
 
 	def FixedUpdate():
@@ -41,11 +48,22 @@ class Alena(MonoBehaviour):
 			
 			
 	def Idle():
-		anime.Play("sad")
+		if isSad:
+			anime.Play("sad")
+		else:
+			anime.Play("happy")
 		isAttacking = false
+
+
+	def Happiness():
+		isSad = false
+		Idle()
 			
 		
 	def Controls():
+
+		if Input.GetKey(KeyCode.R):
+			Application.LoadLevel(0)
 		
 		if Input.GetKey(KeyCode.W):
 			transform.Translate(Vector3.up * speed * Time.deltaTime)
@@ -101,10 +119,23 @@ class Alena(MonoBehaviour):
 			tearOrigin.y += 0.013
 			
 			Instantiate(bubblePrefab, tearOrigin, Quaternion.identity)
-			
-			
-	# 0 Ray
-	
+
+
 	def AntiRay():
 		ray.SetPosition(0, Vector3.zero)
 		ray.SetPosition(1, Vector3.zero)
+
+
+	def MotionSafe():
+
+		if transform.position.x > width / 2:
+			transform.position.x = width / 2
+
+		if transform.position.x < -width / 2:
+			transform.position.x = -width / 2
+
+		if transform.position.y > height / 2:
+			transform.position.y = height / 2
+
+		if transform.position.y < -height / 2:
+			transform.position.y = -height / 2
