@@ -6,15 +6,17 @@ class Alena(MonoBehaviour):
 
 	public ray as LineRenderer
 	public bubblePrefab as GameObject
+	public guiHP as GUIText
 
 	private anime as tk2dAnimatedSprite
 
-	private hp as single = 100
+	public hp as single = 100
 	private damage as single = 10
 	private speed as single = 0.75F
 	private isSad as bool = true
 	private isLookingRight as bool = true
 	private isAttacking as bool = false
+	private isDead as bool = false
 
 	private width as single
 	private height as single
@@ -33,6 +35,17 @@ class Alena(MonoBehaviour):
 
 	def FixedUpdate():
 		transform.position.z = 0
+
+
+	def OnCollisionStay():
+		hp -= 0.4F
+
+		if hp < 0:
+			hp = 0
+			isDead = true
+
+		guiHP.text = "hp " + Mathf.Floor(hp) + "%"
+
 		
 		
 	def LookLeft():
@@ -64,6 +77,9 @@ class Alena(MonoBehaviour):
 
 		if Input.GetKey(KeyCode.R):
 			Application.LoadLevel(0)
+
+		if isDead:
+			return
 		
 		if Input.GetKey(KeyCode.W):
 			transform.Translate(Vector3.up * speed * Time.deltaTime)

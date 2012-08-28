@@ -7,7 +7,6 @@ class Killers (MonoBehaviour):
 	private anime as tk2dAnimatedSprite
 
 	public hp as single = 50
-	public damage as single = 5
 	private speed as single = 0.5F
 	private isDead as bool = false
 	private enemy as GameObject
@@ -26,6 +25,9 @@ class Killers (MonoBehaviour):
 		else:
 			direction as Vector3 = (enemy.transform.position - transform.position).normalized
 			transform.Translate(direction * speed * Time.deltaTime)
+
+			if hp <= 0:
+				isDead = true
 
 
 	def FixedUpdate():
@@ -50,5 +52,3 @@ class Killers (MonoBehaviour):
 	def Hurt(points as single):
 		hp -= points
 		rigidbody.AddExplosionForce(1.5F, transform.position, 0.25F)
-		if hp <= 0:
-			isDead = true

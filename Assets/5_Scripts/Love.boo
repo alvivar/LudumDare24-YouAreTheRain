@@ -10,15 +10,22 @@ class Love(MonoBehaviour):
 	public secondMessage as GUIText
 	public defaultBackgroundColor as Color
 
+	public lokiPrefab as GameObject
+	public nonoPrefab as GameObject
+	public skimPrefab as GameObject
+	public tonekuPrefab as GameObject
+
 	private anime as tk2dAnimatedSprite
 	private enemy as GameObject
 
 	private evolution as single = 0
-	private evolutionPoints as single = 10.3F
+	private evolutionPoints as single = 0.3F
 	private speed as single = 1.5F
 	private level as single = 0
 	private isBlinking as bool = false
 	private isAttacking as bool = false
+	private isSpawning as bool = false
+	private isEnemyDead as bool = false
 
 
 	def Start():
@@ -29,9 +36,15 @@ class Love(MonoBehaviour):
 
 	def Update():
 
+		if enemy.gameObject.GetComponent[of Alena]().hp <= 0:
+			GameOver()
+
 		if evolution >= 1 and level == 0:
 			level++
 			Blink0()
+			killAll()
+			isSpawning = true
+			InvokeRepeating("CallForHelp", 1, 9)
 			ResetWeirdPos()
 			anime.Play("level1")
 			CleanGUITexts()
@@ -41,6 +54,7 @@ class Love(MonoBehaviour):
 		if evolution >= 25 and level == 1:
 			level++
 			Blink0()
+			killAll()
 			ResetWeirdPos()
 			anime.Play("level2")
 			mainMessage.text = "the egg needs\nmore love"
@@ -49,6 +63,7 @@ class Love(MonoBehaviour):
 		if evolution >= 50 and level == 2:
 			level++
 			Blink0()
+			killAll()
 			ResetWeirdPos()
 			anime.Play("level3")
 			mainMessage.text = "WHY?!\nwe are not ready,\nthere is still time"
@@ -57,6 +72,7 @@ class Love(MonoBehaviour):
 		if evolution >= 75 and level == 3:
 			level++
 			Blink0()
+			killAll()
 			ResetWeirdPos()
 			anime.Play("level4")
 			mainMessage.text = "your sadness\nis poison"
@@ -64,6 +80,7 @@ class Love(MonoBehaviour):
 
 		if evolution >= 100 and level == 4:
 			enemy.gameObject.GetComponent[of Alena]().Happiness()
+			killAll()
 			isAttacking = true
 			level++
 			Blink0()
@@ -100,10 +117,30 @@ class Love(MonoBehaviour):
 				loveHate.text =  Mathf.Floor(evolution) + "%"
 
 
+	def CallForHelp():
+		if isSpawning:
+			Instantiate(lokiPrefab, Vector3(-1.5F, 0, 0), Quaternion.identity)
+			Instantiate(nonoPrefab, Vector3(0, 1.5F, 0), Quaternion.identity)
+			Instantiate(skimPrefab, Vector3(1.5F, 0, 0), Quaternion.identity)
+			Instantiate(tonekuPrefab, Vector3(0, -1.5F, 0), Quaternion.identity)
+
+
+	def killAll():
+		kills as (GameObject) = GameObject.FindGameObjectsWithTag("Mortals")
+		for kill in kills:
+			kill.GetComponent[of Killers]().hp = 0
+
+
 	def Ending():
 		mainMessage.text = "a game by @alvivar"
 		secondMessage.text = "press R to restart"
 		author.text = "ludum dare 24: EVOLUTION"
+		Camera.mainCamera.backgroundColor = Color.black
+
+
+	def GameOver():
+		mainMessage.text = "GAME OVER"
+		secondMessage.text = "press R to restart"
 		Camera.mainCamera.backgroundColor = Color.black
 
 
