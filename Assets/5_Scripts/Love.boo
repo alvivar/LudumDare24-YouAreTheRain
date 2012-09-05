@@ -19,7 +19,7 @@ class Love(MonoBehaviour):
 	private enemy as GameObject
 
 	private evolution as single = 0
-	private evolutionPoints as single = 5.4F
+	private evolutionPoints as single = 0.3F
 	private speed as single = 1.5F
 	private level as single = 0
 	private isBlinking as bool = false
@@ -36,15 +36,12 @@ class Love(MonoBehaviour):
 
 	def Update():
 
-		if enemy.gameObject.GetComponent[of Alena]().hp <= 0:
-			GameOver()
-
 		if evolution >= 1 and level == 0:
 			level++
 			Blink0()
 			killAll()
 			isSpawning = true
-			InvokeRepeating("CallForHelp", 1, 9)
+			InvokeRepeating("CallForHelp", 1, 8)
 			ResetWeirdPos()
 			anime.Play("level1")
 			CleanGUITexts()
@@ -97,8 +94,10 @@ class Love(MonoBehaviour):
 
 
 	def FixedUpdate():
+		if enemy.gameObject.GetComponent[of Alena]().hp <= 0:
+			GameOver()
 		if not isAttacking:
-			transform.position = Vector3(0, -0.85F, 0)
+			transform.position = Vector3(0, -0.8F, 0)
 		else:
 			ResetWeirdPos()
 

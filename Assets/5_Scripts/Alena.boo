@@ -7,12 +7,17 @@ class Alena(MonoBehaviour):
 	public ray as LineRenderer
 	public bubblePrefab as GameObject
 	public guiHP as GUIText
+	public guiScore as GUIText
+
+	public laserSound as AudioClip
 
 	private anime as tk2dAnimatedSprite
 
 	public hp as single = 100
+	private score as single = 0
 	private damage as single = 10
-	private speed as single = 0.75F
+	private speed as single = 0.8F
+	private scorePerHit as single = 3
 	private isSad as bool = true
 	private isLookingRight as bool = true
 	private isAttacking as bool = false
@@ -115,12 +120,23 @@ class Alena(MonoBehaviour):
 			else:
 				rayOrigin.x -= 0.022
 			rayOrigin.y += 0.013
+			audio.PlayOneShot(laserSound)
 
 			direction as Vector3 = (click - rayOrigin).normalized
 			distance as single = (click - rayOrigin).magnitude
 
 			hits = Physics.RaycastAll(rayOrigin, direction, distance, 1 << LayerMask.NameToLayer("Good"))
-			attack as single = damage * len(hits)
+			lenHits = len(hits)
+			attack as single = damage * lenHits
+
+			if lenHits > 1:
+				score += scorePerHit * scorePerHit * lenHits
+			else:
+				score += scorePerHit * lenHits
+
+			if score > 0:
+				guiScore.text = "score " + score
+
 			for hit in hits:
 				hit.transform.gameObject.GetComponent[of Killers]().Hurt(attack)
 			
