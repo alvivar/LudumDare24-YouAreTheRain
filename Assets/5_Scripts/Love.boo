@@ -9,6 +9,7 @@ class Love(MonoBehaviour):
 	public author as GUIText
 	public secondMessage as GUIText
 	public defaultBackgroundColor as Color
+	public clouds as ParticleSystem
 
 	public lokiPrefab as GameObject
 	public nonoPrefab as GameObject
@@ -132,6 +133,7 @@ class Love(MonoBehaviour):
 
 
 	def Ending():
+		Destroy(clouds)
 		mainMessage.text = "a game by @alvivar"
 		secondMessage.text = "press R to restart"
 		author.text = "ludum dare 24: EVOLUTION"
@@ -139,6 +141,7 @@ class Love(MonoBehaviour):
 
 
 	def GameOver():
+		Destroy(clouds)
 		mainMessage.text = "GAME OVER"
 		secondMessage.text = "press R to restart"
 		Camera.mainCamera.backgroundColor = Color.black

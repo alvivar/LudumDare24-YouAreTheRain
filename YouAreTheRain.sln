@@ -7,6 +7,8 @@ Project("{2116330A-963A-768C-46F1-139F79EAC88E}") = "YouAreTheRain", "Assembly-C
 EndProject
 Project("{2116330A-963A-768C-46F1-139F79EAC88E}") = "YouAreTheRain", "Assembly-Boo.booproj", "{4E854D31-B34C-E3EA-B622-FCB82CBC66CC}"
 EndProject
+Project("{2116330A-963A-768C-46F1-139F79EAC88E}") = "YouAreTheRain", "Assembly-UnityScript.unityproj", "{693B2421-5D66-BEBF-7C8D-AC798C8CB5EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,11 +27,15 @@ Global
 		{4E854D31-B34C-E3EA-B622-FCB82CBC66CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E854D31-B34C-E3EA-B622-FCB82CBC66CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E854D31-B34C-E3EA-B622-FCB82CBC66CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{693B2421-5D66-BEBF-7C8D-AC798C8CB5EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{693B2421-5D66-BEBF-7C8D-AC798C8CB5EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{693B2421-5D66-BEBF-7C8D-AC798C8CB5EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{693B2421-5D66-BEBF-7C8D-AC798C8CB5EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																										GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																				GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp-firstpass.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

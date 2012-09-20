@@ -8,11 +8,12 @@ class Killers (MonoBehaviour):
 
 	public hp as single = 50
 	private speed as single = 0.5F
+	private recallVal as single = 2F
 	private isDead as bool = false
 	private isLookingRight = true
 
+	public blood as GameObject
 	private enemy as GameObject
-	private recallVal as single = 2F
 
 
 	def Start():
@@ -69,6 +70,7 @@ class Killers (MonoBehaviour):
 
 	def Hurt(points as single):
 		hp -= points
+		Instantiate(blood, transform.position, Quaternion.identity)
 		rigidbody.AddExplosionForce(1F, transform.position, 0.25F)
 		Invoke("Recall", recallVal)
 
