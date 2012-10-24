@@ -1,6 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/KongregateAPI/KongregateAPI.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/5_Scripts/Love.boo">
     <Files>
       <File FileName="Assets/5_Scripts/Alena.boo" Line="1" Column="1" />
       <File FileName="Assets/5_Scripts/Love.boo" Line="1" Column="1" />
@@ -14,14 +14,14 @@
         <State expanded="True">
           <Node name="Assembly-Boo" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="5_Scripts" expanded="True" />
+              <Node name="5_Scripts" expanded="True">
+                <Node name="Love.boo" selected="True" />
+              </Node>
             </Node>
           </Node>
           <Node name="Assembly-UnityScript" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="KongregateAPI" expanded="True">
-                <Node name="KongregateAPI.js" selected="True" />
-              </Node>
+              <Node name="KongregateAPI" expanded="True" />
             </Node>
           </Node>
         </State>
