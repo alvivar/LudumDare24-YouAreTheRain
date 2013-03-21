@@ -35,7 +35,6 @@ class Alena(MonoBehaviour):
 		
 	def Update():
 		Controls()
-		MotionSafe()
 
 
 	def FixedUpdate():
@@ -120,7 +119,7 @@ class Alena(MonoBehaviour):
 			else:
 				rayOrigin.x -= 0.022
 			rayOrigin.y += 0.013
-			audio.PlayOneShot(laserSound)
+			// audio.PlayOneShot(laserSound)
 
 			direction as Vector3 = (click - rayOrigin).normalized
 			distance as single = (click - rayOrigin).magnitude
@@ -160,18 +159,3 @@ class Alena(MonoBehaviour):
 	def AntiRay():
 		ray.SetPosition(0, Vector3.zero)
 		ray.SetPosition(1, Vector3.zero)
-
-
-	def MotionSafe():
-
-		if transform.position.x > width / 2:
-			transform.position.x = width / 2
-
-		if transform.position.x < -width / 2:
-			transform.position.x = -width / 2
-
-		if transform.position.y > height / 2:
-			transform.position.y = height / 2
-
-		if transform.position.y < -height / 2:
-			transform.position.y = -height / 2
