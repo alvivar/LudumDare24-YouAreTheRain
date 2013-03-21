@@ -7,12 +7,9 @@
           <Node name="Assembly-Boo" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="5_Scripts" expanded="True">
-                <Node name="Blood.boo" selected="True" />
+                <Node name="Alena.boo" selected="True" />
               </Node>
             </Node>
-          </Node>
-          <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Assets" expanded="True" />
           </Node>
         </State>
       </Pad>
