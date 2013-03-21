@@ -46,7 +46,7 @@ class Alena(MonoBehaviour):
 		if collision.gameObject.name == "Love":
 			return
 
-		hp -= 0.4F
+		hp -= 0.8F
 
 		if hp < 0:
 			hp = 0

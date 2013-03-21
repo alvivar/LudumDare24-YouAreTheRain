@@ -1,28 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/5_Scripts/Love.boo">
-    <Files>
-      <File FileName="Assets/5_Scripts/Alena.boo" Line="1" Column="1" />
-      <File FileName="Assets/5_Scripts/Love.boo" Line="1" Column="1" />
-      <File FileName="Assets/5_Scripts/Killers.boo" Line="1" Column="1" />
-      <File FileName="Assets/5_Scripts/AlenaBubble.boo" Line="1" Column="1" />
-      <File FileName="Assets/5_Scripts/Blood.boo" Line="1" Column="1" />
-      <File FileName="Assets/KongregateAPI/KongregateAPI.js" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-Boo" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="5_Scripts" expanded="True">
-                <Node name="Love.boo" selected="True" />
+                <Node name="Blood.boo" selected="True" />
               </Node>
             </Node>
           </Node>
-          <Node name="Assembly-UnityScript" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="KongregateAPI" expanded="True" />
-            </Node>
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Assets" expanded="True" />
           </Node>
         </State>
       </Pad>

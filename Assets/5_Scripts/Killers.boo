@@ -26,6 +26,7 @@ class Killers (MonoBehaviour):
 		if isDead:
 			rigidbody.useGravity = true
 			anime.FlipY()
+			GetComponent[of GhostingEffect]().Stop()
 		else:
 			direction as Vector3 = (enemy.transform.position - transform.position).normalized
 			transform.Translate(direction * speed * Time.deltaTime)
